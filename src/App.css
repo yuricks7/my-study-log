@@ -1,0 +1,117 @@
+body {
+  margin: 10px auto;
+  font-size: 18px;
+  color: #3b3b3b;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 8px;
+  width: 600px;
+  border-radius: 8px;
+}
+
+textarea {
+  border-radius: 8px;
+  border: 2px solid #79a8a9;
+  padding: 6px 16px;
+}
+
+input {
+  border-radius: 8px;
+  border: 2px solid #79a8a9;
+  padding: 6px 16px;
+}
+
+button {
+  background-color: #b3b3b3;
+  border-radius: 8px;
+  border: none;
+  padding: 4px 16px;
+  margin: 0px 2px;
+}
+
+button:hover {
+  background-color: #79a8a9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-area {
+  border: 2px solid #aacfd0;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.history-area {
+  border: 2px solid #aacfd0;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: #c9dede;
+}
+
+h1 {
+  margin: 0;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+form {
+  width: fit-content;
+  margin: auto;
+}
+
+form button {
+  text-align: right;
+}
+
+textarea {
+  width:  460px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+p {
+  margin: 0 0 8px;
+}
+
+/* 基本スタイル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #79a8a9;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid #79a8a9;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.btn-space {
+  line-height: 60px;
+  align-items: flex-start;
+  text-align: center;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

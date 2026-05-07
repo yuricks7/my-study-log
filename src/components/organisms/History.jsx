@@ -1,0 +1,86 @@
+import { useState } from "react";
+import { formatDate } from "../../state/studyLog/utils";
+import { UpdatingSkeleton } from "../atoms/UpdatingSkeleton";
+import { ErrorMessage } from "../atoms/ErrorMessage"; // ← 既に作ったエラーコンポーネント
+
+export const History = (props) => {
+  const { state, onDelete, onUpdate } = props;
+  const [error, setError] = useState("");
+
+  if (state.isUpdating) {
+    return <UpdatingSkeleton />;
+  }
+
+  // ★ 更新ボタン押下時のバリデーション
+  const handleClickUpdate = (item) => {
+    const title = state.title;
+    const time = state.time;
+
+    if (!title.trim()) {
+      setError("タイトルを入力してください");
+      return;
+    }
+
+    if (time <= 0) {
+      setError("時間は1以上を入力してください");
+      return;
+    }
+
+    setError("");
+
+    onUpdate({
+      id: item.id,
+      title,
+      time
+    });
+  };
+
+  return (
+    <div className='history-area'>
+      <h2>履歴</h2>
+
+      {/* ★ エラー表示 */}
+      {error && <ErrorMessage message={error} />}
+
+      <p id="sum-time">{`合計：${state.sum}時間`}</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>学習日</th>
+            <th>内容</th>
+            <th>時間</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {state.list.map((item) => {
+            const dateStr = formatDate(item.created_at, "/");
+
+            return (
+              <tr key={item.id}>
+                <td>{dateStr}</td>
+                <td>{item.title}</td>
+                <td>{item.time}時間</td>
+
+                <td className='btn-space'>
+                  <button onClick={() => handleClickUpdate(item)}>
+                    更新
+                  </button>
+                </td>
+
+                <td className='btn-space'>
+                  <button onClick={() => onDelete(item.id)}>
+                    削除
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};

@@ -4,8 +4,6 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabasePublishableKey
           = import.meta.env.VITE_SUPABASE_PUBLISHABLE_API_KEY;
 
-console.log(supabaseUrl);
-
 export const supabase = createClient(
   supabaseUrl,
   supabasePublishableKey

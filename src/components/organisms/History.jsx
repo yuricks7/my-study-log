@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { formatDate } from "../../state/studyLog/utils";
-import { UpdatingSkeleton } from "../atoms/UpdatingSkeleton";
-import { ErrorMessage } from "../atoms/ErrorMessage"; // ← 既に作ったエラーコンポーネント
+
+import { PrimaryButton } from "../atoms/buttons/PrimaryButton";
+import { UpdatingSkeleton } from "../atoms/loadings/UpdatingSkeleton";
+
+import { ErrorMessage } from "../atoms/ErrorMessage";
 
 export const History = (props) => {
   const { state, onDelete, onUpdate } = props;
@@ -66,15 +69,15 @@ export const History = (props) => {
                 <td>{item.time}時間</td>
 
                 <td className='btn-space'>
-                  <button onClick={() => handleClickUpdate(item)}>
+                  <PrimaryButton onClick={() => handleClickUpdate(item)}>
                     更新
-                  </button>
+                  </PrimaryButton>
                 </td>
 
                 <td className='btn-space'>
-                  <button onClick={() => onDelete(item.id)}>
+                  <PrimaryButton onClick={() => onDelete(item.id)}>
                     削除
-                  </button>
+                  </PrimaryButton>
                 </td>
               </tr>
             );

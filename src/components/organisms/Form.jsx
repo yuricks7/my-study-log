@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FORM_RESET, LOG_ADDED, SET_TIME, SET_TITLE } from "../../state/studyLog";
 import { ErrorMessage } from "../atoms/ErrorMessage";
+import { PrimaryButton } from "../atoms/buttons/PrimaryButton";
 
 export const Form = (props) => {
   const { state, dispatch, onAdd } = props;
@@ -47,7 +48,7 @@ export const Form = (props) => {
             dispatch({type: SET_TIME, time: Number(e.target.value)})
           }
         />時間
-        <button type="submit">追加</button>
+        <PrimaryButton type="submit">追加</PrimaryButton>
         {/* <button onClick={onAdd}>追加</button> */}
       </form>
       <ErrorMessage message={error} />

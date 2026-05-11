@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const PrimaryButton = (props) => {
-  const { children } = props;
+  const { children, onClick } = props;
 
   return (
-    <SButton>{children}</SButton>
+    <SButton onClick={onClick}>{children}</SButton>
   )
 };
 

@@ -11,8 +11,8 @@ import { createResource } from "./Loading/createResource";
 import { Form } from "./components/organisms/Form";
 
 import { HistoryLoader } from "./components/molecules/HistoryLoader";
-import { LoadingScreen } from "./components/atoms/LoadingScreen";
-import { LoadingSkeletonScreen } from "./components/atoms/LoadingSkeletonScreen";
+import { LoadingScreen } from "./components/atoms/loadings/LoadingScreen";
+import { LoadingSkeletonScreen } from "./components/atoms/loadings/LoadingSkeletonScreen";
 
 // 初回ロード
 const fetchLogs = async () => {

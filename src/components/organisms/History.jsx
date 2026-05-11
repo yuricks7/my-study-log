@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { formatDate } from "../../state/studyLog/utils";
-import { UpdatingSkeleton } from "../atoms/UpdatingSkeleton";
-import { ErrorMessage } from "../atoms/ErrorMessage"; // ← 既に作ったエラーコンポーネント
+
+import { PrimaryButton } from "../atoms/buttons/PrimaryButton";
+import { UpdatingSkeleton } from "../atoms/loadings/UpdatingSkeleton";
+
+import { ErrorMessage } from "../atoms/ErrorMessage";
+import { HistoryBody } from "../molecules/HistoryBody";
+import { AreaHeader } from "../atoms/headers/AreaHeader";
 
 export const History = (props) => {
   const { state, onDelete, onUpdate } = props;
@@ -37,7 +42,7 @@ export const History = (props) => {
 
   return (
     <div className='history-area'>
-      <h2>履歴</h2>
+      <AreaHeader>履歴</AreaHeader>
 
       {/* ★ エラー表示 */}
       {error && <ErrorMessage message={error} />}
@@ -58,23 +63,25 @@ export const History = (props) => {
         <tbody>
           {state.list.map((item) => {
             const dateStr = formatDate(item.created_at, "/");
-
             return (
+              // <HistoryBody
+              //   log={item}
+              //   onUpdate={() => handleClickUpdate(item)}
+              //   onDelete={() => onDelete(item.id)}
+              // />
               <tr key={item.id}>
                 <td>{dateStr}</td>
                 <td>{item.title}</td>
                 <td>{item.time}時間</td>
-
                 <td className='btn-space'>
-                  <button onClick={() => handleClickUpdate(item)}>
+                  <PrimaryButton onClick={() => handleClickUpdate(item)}>
                     更新
-                  </button>
+                  </PrimaryButton>
                 </td>
-
                 <td className='btn-space'>
-                  <button onClick={() => onDelete(item.id)}>
+                  <PrimaryButton onClick={() => onDelete(item.id)}>
                     削除
-                  </button>
+                  </PrimaryButton>
                 </td>
               </tr>
             );

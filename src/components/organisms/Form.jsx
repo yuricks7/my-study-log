@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { FORM_RESET, LOG_ADDED, SET_TIME, SET_TITLE } from "../../state/studyLog";
+
 import { ErrorMessage } from "../atoms/ErrorMessage";
+
+import { PrimaryButton } from "../atoms/buttons/PrimaryButton";
+import { AreaHeader } from "../atoms/headers/AreaHeader";
 
 export const Form = (props) => {
   const { state, dispatch, onAdd } = props;
@@ -30,7 +34,8 @@ export const Form = (props) => {
 
   return (
     <div className='input-area' onSubmit={handleSubmit}>
-      <h2>記録</h2>
+      <AreaHeader>記録</AreaHeader>
+
       <form id="input-history">
         <textarea
           type="text"
@@ -47,9 +52,8 @@ export const Form = (props) => {
             dispatch({type: SET_TIME, time: Number(e.target.value)})
           }
         />時間
-        <button type="submit">追加</button>
-        {/* <button onClick={onAdd}>追加</button> */}
-      </form>
+        <PrimaryButton type="submit">追加</PrimaryButton>
+       </form>
       <ErrorMessage message={error} />
     </div>
   );

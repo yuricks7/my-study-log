@@ -5,6 +5,7 @@ import { PrimaryButton } from "../atoms/buttons/PrimaryButton";
 import { UpdatingSkeleton } from "../atoms/loadings/UpdatingSkeleton";
 
 import { ErrorMessage } from "../atoms/ErrorMessage";
+import { HistoryTable } from "../molecules/HistoryTable";
 
 export const History = (props) => {
   const { state, onDelete, onUpdate } = props;

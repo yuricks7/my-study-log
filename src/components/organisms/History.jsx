@@ -6,6 +6,7 @@ import { UpdatingSkeleton } from "../atoms/loadings/UpdatingSkeleton";
 
 import { ErrorMessage } from "../atoms/ErrorMessage";
 import { HistoryTable } from "../molecules/HistoryTable";
+import { AreaHeader } from "../atoms/headers/AreaHeader";
 
 export const History = (props) => {
   const { state, onDelete, onUpdate } = props;
@@ -41,7 +42,7 @@ export const History = (props) => {
 
   return (
     <div className='history-area'>
-      <h2>履歴</h2>
+      <AreaHeader>履歴</AreaHeader>
 
       {/* ★ エラー表示 */}
       {error && <ErrorMessage message={error} />}
